@@ -1,18 +1,26 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
+
+const image = { uri: "assets/fondo1.jpg" };
 
 export default function Inicio({ navigation }) {
 	return (
 		<View style={styles.container}>
-			<View>
-				<Text>Menú de comida Mexicana</Text>
-			</View>
-			<View style={styles.child}>
-				<Button
-					title="Ir a comprar"
-					onPress={() => navigation.navigate("Comprar")} // We added an onPress event which would navigate to the About screen
-				/>
-			</View>
+			<ImageBackground
+				source={image}
+				resizeMode="cover"
+				style={styles.image}
+			>
+				<View>
+					<Text>Menú de comida Mexicana</Text>
+				</View>
+				<View style={styles.child}>
+					<Button
+						title="Para pedir aqui!"
+						onPress={() => navigation.navigate("Comprar")} // We added an onPress event which would navigate to the About screen
+					/>
+				</View>
+			</ImageBackground>
 		</View>
 	);
 }
@@ -25,5 +33,10 @@ const styles = StyleSheet.create({
 	},
 	child: {
 		marginTop: 20,
+		backgroundColor: "#E74C3C"
+	},
+	image: {
+		flex: 1,
+		justifyContent: "center",
 	},
 });

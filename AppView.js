@@ -10,15 +10,15 @@ import DrawerNavigator from "./Navigations/DrawerNavigator";
 import DataProvider, { useDataContext } from "./Context/DataContext";
 
 export default function AppView() {
-	const { cargado, productos, categorias, complementos } = useDataContext();
+	const { cargado/*, productos, categorias, complementos*/ } = useDataContext();
 
-	useEffect(() => {
+	/* useEffect(() => {
 		if (cargado) {
 			console.log("Productos: ", productos);
             console.log("Categorias: ", categorias);
             console.log("Complementos: ", complementos);
 		}
-	}, [cargado]);
+	}, [cargado]); */
 	return (
 		<SafeAreaView style={styles.container}>
 			{cargado ? (

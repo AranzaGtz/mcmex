@@ -6,6 +6,7 @@ import Pago from "../Screens/Pago";
 import Quejas from "../Screens/Quejas";
 import Productos from "../Screens/Productos";
 import Producto from "../Screens/Producto";
+import ComprarProducto from "../Screens/ComprarProducto";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ const MainStackNavigator = () => {
 		<Stack.Navigator screenOptions={screenOptionStyle}>
 			<Stack.Screen name="Inicio" component={Inicio} />
 			<Stack.Screen name="Comprar" component={Comprar} />
+			<Stack.Screen name="ComprarProducto" component={ComprarProducto} />
 		</Stack.Navigator>
 	);
 };
