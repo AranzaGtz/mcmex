@@ -28,7 +28,14 @@ export default function Inicio({ navigation }) {
 }
 const styles = StyleSheet.create({
 	container: {
+<<<<<<< Updated upstream
 		flex: 1
+=======
+		flex: 1,
+		backgroundColor: "#FE9C68",
+		alignItems: "center",
+		justifyContent: "center",
+>>>>>>> Stashed changes
 	},
 	child: {
 		marginTop: 20
