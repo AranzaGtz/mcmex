@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
 import { useDataContext } from "../Context/DataContext";
 import { Picker } from "@react-native-picker/picker";
 import ListaProductosComprar from "../Components/ListaProductosComprar";
+import ThemeTemplate from "../Components/ThemeTemplate";
 
 const PickerFiltro = ({ values, onSelectValue }) => {
 	const [selectedValue, setSelectedValue] = useState("-1");
@@ -37,36 +38,36 @@ export default function Comprar({ navigation }) {
 	}, [productosFiltrados]); */
 
 	return (
-		<SafeAreaView style={styles.container}>
-			<PickerFiltro
-				values={categorias}
-				onSelectValue={(categoria) => {
-					let nuevosProductos = [];
-					if (categoria !== "-1") {
-						nuevosProductos = productos.filter(
-							(producto) => producto.categoria == categoria
-						);
-					} else {
-						nuevosProductos = [...productos];
-					}
-					setProductosFiltrados(nuevosProductos);
-				}}
-			/>
-			<ListaProductosComprar
-				navigation={navigation}
-				productos={productosFiltrados}
-			/>
-		</SafeAreaView>
+		<ThemeTemplate>
+			<SafeAreaView style={styles.container}>
+				<PickerFiltro
+					values={categorias}
+					onSelectValue={(categoria) => {
+						let nuevosProductos = [];
+						if (categoria !== "-1") {
+							nuevosProductos = productos.filter(
+								(producto) => producto.categoria == categoria
+							);
+						} else {
+							nuevosProductos = [...productos];
+						}
+						setProductosFiltrados(nuevosProductos);
+					}}
+				/>
+				<ListaProductosComprar
+					navigation={navigation}
+					productos={productosFiltrados}
+				/>
+			</SafeAreaView>
+		</ThemeTemplate>
 	);
 }
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#eee",
 		alignItems: "center",
 		justifyContent: "center",
 	},
-	// Set pickerContainer in a row align to right center
 	pickerContainer: {
 		flexDirection: "row",
 		alignItems: "center",
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
 	picker: {
 		width: "100%",
 		height: 30,
-		backgroundColor: "#fff",
+		backgroundColor: "#f1f1f1",
 		borderWidth: 1,
 		borderColor: "#000",
 	},

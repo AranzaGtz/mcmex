@@ -22,9 +22,9 @@ const screenOptionStyle = {
 const MainStackNavigator = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Inicio" component={Inicio} />
-			<Stack.Screen name="Comprar" component={Comprar} />
-			<Stack.Screen name="ComprarProducto" component={ComprarProducto} />
+			<Stack.Screen name="Inicio" component={Inicio} options={{ title: 'Comida Mexicana' }}  />
+			<Stack.Screen name="Comprar" component={Comprar} options={{ title: 'Pedir' }} />
+			<Stack.Screen name="ComprarProducto" component={ComprarProducto}  options={{ title: 'Detalles del pedido' }} />
 		</Stack.Navigator>
 	);
 };
@@ -32,8 +32,8 @@ const MainStackNavigator = () => {
 const CarritoStackNavigator = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Carrito" component={Carrito} />
-			<Stack.Screen name="Pago" component={Pago} />
+			<Stack.Screen name="Carrito" component={Carrito} options={{ title: 'Carrito' }} />
+			<Stack.Screen name="Pago" component={Pago} options={{ title: 'Método de Pago' }} />
 		</Stack.Navigator>
 	);
 };
@@ -41,7 +41,7 @@ const CarritoStackNavigator = () => {
 const QuejasStackNavigator = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Quejas" component={Quejas} />
+			<Stack.Screen name="Quejas" component={Quejas} options={{ title: 'Quejas' }} />
 		</Stack.Navigator>
 	);
 };
@@ -49,18 +49,10 @@ const QuejasStackNavigator = () => {
 const ProductosStackNavigator = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Productos" component={Productos} />
-			<Stack.Screen name="Producto" component={Producto} />
+			<Stack.Screen name="Productos" component={Productos} options={{ title: 'Productos' }} />
+			<Stack.Screen name="Producto" component={Producto} options={{ title: 'Detalle del producto' }} />
 		</Stack.Navigator>
 	);
 };
 
 export { MainStackNavigator, CarritoStackNavigator, QuejasStackNavigator, ProductosStackNavigator };
-/* export default function StackNavigator() {
-	return (
-		<Stack.Navigator initialRouteName="DrawerNavigator">
-			<Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
-		</Stack.Navigator>
-	);
-}
- */
