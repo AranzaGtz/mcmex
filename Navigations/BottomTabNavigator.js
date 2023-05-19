@@ -9,30 +9,30 @@ import {
 
 const Tab = createBottomTabNavigator();
 
+const screenOptionStyle = {
+	//Versiones anteriores tabBarOptions
+	tabBarActiveTintColor: "#B1B1B1", //activeTintColor
+	tabBarInactiveTintColor: "#FFFFFF", //inactiveTintColor
+	tabBarShowLabel: true, //showLabel
+	tabBarLabelStyle: {
+		//labelStyle
+		fontSize: 12,
+	},
+	tabBarStyle: {
+		//style
+		paddingBottom: 5,
+		backgroundColor: "#FF0000",
+	},
+};
+
 export default function BottomTabNavigator() {
 	return (
-		<Tab.Navigator
-			screenOptions={{
-				//Versiones anteriores tabBarOptions
-				tabBarActiveTintColor: "#ff6600", //activeTintColor
-				tabBarInactiveTintColor: "#060606", //inactiveTintColor
-				tabBarShowLabel: true, //showLabel
-				tabBarLabelStyle: {
-					//labelStyle
-					fontSize: 12,
-				},
-				tabBarStyle: {
-					//style
-					paddingBottom: 5,
-					backgroundColor: "#f3f3f1",
-				},
-			}}
-		>
+		<Tab.Navigator screenOptions={screenOptionStyle}>
 			<Tab.Screen
 				name="Main"
 				component={MainStackNavigator}
 				options={{
-                    headerShown: false,
+					headerShown: false,
 					tabBarLabel: "Inicio",
 					tabBarIcon: ({ color }) => (
 						<Ionicons name={"ios-home"} size={20} color={color} />
@@ -43,7 +43,7 @@ export default function BottomTabNavigator() {
 				name="MainCarrito"
 				component={CarritoStackNavigator}
 				options={{
-                    headerShown: false,
+					headerShown: false,
 					tabBarLabel: "Carrito",
 					tabBarIcon: ({ color }) => (
 						<Ionicons
@@ -58,7 +58,7 @@ export default function BottomTabNavigator() {
 				name="MainQuejas"
 				component={QuejasStackNavigator}
 				options={{
-                    headerShown: false,
+					headerShown: false,
 					tabBarLabel: "Quejas",
 					tabBarIcon: ({ color }) => (
 						<Ionicons

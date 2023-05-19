@@ -4,10 +4,11 @@ import {
 	ActivityIndicator,
 	SafeAreaView,
 } from "react-native";
+import 'react-native-gesture-handler';
+import "react-native-reanimated";
 import React from "react";
 import DataProvider from "./Context/DataContext";
 import AppView from "./AppView";
-import "react-native-reanimated";
 
 export default function App() {
 	return (

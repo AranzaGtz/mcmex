@@ -1,7 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
+import fondo from "../assets/fondo-inicio.png";
+import { themeColors } from "../utils/constants";
+import ThemeButton from "../Components/ThemeButton";
 
-const image = {uri: 'https://i.pinimg.com/564x/c1/8f/f2/c18ff2a10107fc3b08419db54241ea95.jpg'};
+const image =
+	fondo; /* {uri: 'https://i.pinimg.com/564x/c1/8f/f2/c18ff2a10107fc3b08419db54241ea95.jpg'} */
 
 export default function Inicio({ navigation }) {
 	return (
@@ -15,11 +19,9 @@ export default function Inicio({ navigation }) {
 					<Text>Menú de comida Mexicana</Text>
 				</View>
 				<View style={styles.child}>
-					<Button
+					<ThemeButton
 						title="Para pedir aqui!"
 						onPress={() => navigation.navigate("Comprar")}
-						color="#E74C3C"
-						// We added an onPress event which would navigate to the About screen
 					/>
 				</View>
 			</ImageBackground>
@@ -28,14 +30,14 @@ export default function Inicio({ navigation }) {
 }
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+		flex: 1,
 	},
 	child: {
-		marginTop: 20
+		marginTop: 20,
 	},
 	image: {
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
-	}
+	},
 });
