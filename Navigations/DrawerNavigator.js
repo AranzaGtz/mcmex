@@ -27,7 +27,7 @@ const DrawerNavigatorContent = (props) => (
 		</View> */}
 	</DrawerContentScrollView>
 );
-export default function DrawerNavigator() {
+export default function DrawerNavigator(props) {
 	return (
 		<Drawer.Navigator
 			screenOptions={{

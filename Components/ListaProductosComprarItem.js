@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDataContext } from "../Context/DataContext";
+import { Button } from "@rneui/themed";
 
 export default function ListaProductosComprarItem({ navigation, producto }) {
 	const { categorias } = useDataContext();
@@ -30,32 +31,21 @@ export default function ListaProductosComprarItem({ navigation, producto }) {
 				</Text>
 				<Text style={styles.title}>{nombre}</Text>
 				<View style={styles.counter}>
-					{/* <View style={styles.counterContainer}>
-						            <AntDesign
-              name="minuscircleo"
-              size={24}
-              color={colorScheme === "light" ? "black" : "white"}
-              onPress={() => setCount(count - 1)}
-            />
-            <Text style={styles.counterText}>{count}</Text>
-            <AntDesign
-
-              name="pluscircleo"
-              size={24}
-              color={colorScheme === "light" ? "black" : "white"}
-              onPress={() => setCount(count + 1)}
-            />
-          </View> */}
 					<Text style={styles.price}>${precio.toFixed(2)}</Text>
 				</View>
 				<Text numberOfLines={2} style={styles.description}>
 					{descripcion}
 				</Text>
-				<TouchableOpacity style={styles.button}>
-					<Text style={styles.buttonText}>
-						Pedir
-					</Text>
-				</TouchableOpacity>
+				<Button
+					buttonStyle={styles.button}
+					size="lg"
+					titleStyle={{ color: "white", marginHorizontal: 20 }}
+					color="black"
+					title="Pedir"
+					onPress={() => {
+						navigation.push("OrdenDetalles", { producto });
+					}}
+				/>
 			</View>
 		</View>
 	);
@@ -66,7 +56,7 @@ const styles = StyleSheet.create({
 		borderRadius: 20,
 		padding: 20,
 		marginVertical: 10,
-        width: "100%",
+		width: "100%",
 	},
 	imageContainer: {
 		backgroundColor: "white",
@@ -88,7 +78,7 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 20,
 		fontWeight: "bold",
-		color: "black"
+		color: "black",
 	},
 	counter: {
 		flexDirection: "row",
@@ -111,7 +101,7 @@ const styles = StyleSheet.create({
 	},
 	description: {
 		fontSize: 14,
-        lineHeight: 20,
+		lineHeight: 20,
 		color: "black",
 		opacity: 0.6,
 	},
@@ -119,14 +109,11 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "center",
 		backgroundColor: "black",
-		borderRadius: 20,
 		padding: 10,
 		width: "80%",
 		alignSelf: "center",
 		marginVertical: 10,
-	},
-	buttonText: {
-		color: "white",
 		fontWeight: "bold",
+		width: "100%",
 	},
 });

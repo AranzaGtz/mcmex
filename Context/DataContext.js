@@ -1,6 +1,6 @@
 import React from "react";
 import database from "../utils/firebaseDB";
-import { get, onValue, ref } from "firebase/database";
+import { get, push, ref } from "firebase/database";
 
 const DataContext = React.createContext();
 
@@ -11,6 +11,7 @@ const DataProvider = ({ children }) => {
 	const [categorias, setCategorias] = React.useState([]);
 	const [complementos, setComplementos] = React.useState([]);
 	const [productos, setProductos] = React.useState([]);
+	const [carrito, setCarrito] = React.useState([]);
 
 	const cargarCategorias = async () => {
 		const categoriasLoaded = [];
@@ -55,12 +56,37 @@ const DataProvider = ({ children }) => {
 
 		setCargado(true);
 	};
+	const agregarAlCarrito = (orden) => {
+		setCarrito([...carrito, orden]);
+	};
+	const eliminarDelCarrito = (ordenIdx) => {
+		const newCarrito = [...carrito];
+		newCarrito.splice(ordenIdx, 1);
+		setCarrito(newCarrito);
+	};
+	const completarPedido = (informacion) => {
+		const pedido = {
+			...informacion,
+			orden: carrito,
+		};
+		const pedidosRef = ref(database, "Pedidos");
+		push(pedidosRef, pedido);
+	};
 	React.useEffect(() => {
 		preload();
 	}, []);
 	return (
 		<DataContext.Provider
-			value={{ cargado, categorias, complementos, productos }}
+			value={{
+				cargado,
+				categorias,
+				complementos,
+				productos,
+				carrito,
+				agregarAlCarrito,
+				eliminarDelCarrito,
+				completarPedido,
+			}}
 		>
 			{children}
 		</DataContext.Provider>

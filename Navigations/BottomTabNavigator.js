@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {
-	CarritoStackNavigator,
+	PedidoStackNavigator,
 	MainStackNavigator,
 	QuejasStackNavigator,
 } from "./StackNavigator";
@@ -40,11 +40,11 @@ export default function BottomTabNavigator() {
 				}}
 			/>
 			<Tab.Screen
-				name="MainCarrito"
-				component={CarritoStackNavigator}
+				name="MainPedido"
+				component={PedidoStackNavigator}
 				options={{
 					headerShown: false,
-					tabBarLabel: "Carrito",
+					tabBarLabel: "Mi pedido",
 					tabBarIcon: ({ color }) => (
 						<Ionicons
 							name={"cart-outline"}

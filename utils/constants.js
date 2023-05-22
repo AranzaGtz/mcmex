@@ -1,0 +1,1 @@
+export const defaultNotes = "Sin notas";

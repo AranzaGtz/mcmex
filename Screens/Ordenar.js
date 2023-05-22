@@ -29,13 +29,9 @@ const PickerFiltro = ({ values, onSelectValue }) => {
 		</View>
 	);
 };
-export default function Comprar({ navigation }) {
+export default function Ordenar({ navigation }) {
 	const { productos, categorias, complementos } = useDataContext();
 	const [productosFiltrados, setProductosFiltrados] = useState(productos);
-
-	/* useEffect(() => {
-		console.log("Productos filtrados: ", productosFiltrados);
-	}, [productosFiltrados]); */
 
 	return (
 		<ThemeTemplate>

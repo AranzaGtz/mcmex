@@ -16,8 +16,8 @@ export default function Inicio({ navigation }) {
 			</View>
 			<View style={styles.child}>
 				<ThemeButton
-					title="Para pedir aqui!"
-					onPress={() => navigation.navigate("Comprar")}
+					title="Para ordenar aqui!"
+					onPress={() => navigation.navigate("Ordenar")}
 				/>
 			</View>
 		</ThemeTemplate>

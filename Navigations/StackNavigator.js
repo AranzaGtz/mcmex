@@ -1,12 +1,13 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Inicio from "../Screens/Inicio";
-import Comprar from "../Screens/Comprar";
-import Carrito from "../Screens/Carrito";
+import MiPedido from "../Screens/MiPedido";
 import Pago from "../Screens/Pago";
 import Quejas from "../Screens/Quejas";
 import Productos from "../Screens/Productos";
 import Producto from "../Screens/Producto";
-import ComprarProducto from "../Screens/ComprarProducto";
+import Ordenar from "../Screens/Ordenar";
+import OrdenDetalles from "../Screens/OrdenDetalles"
+import OrdenAgregada from "../Screens/OrdenAgregada"
 
 const Stack = createStackNavigator();
 
@@ -21,18 +22,19 @@ const screenOptionStyle = {
 
 const MainStackNavigator = () => {
 	return (
-		<Stack.Navigator screenOptions={screenOptionStyle}>
+		<Stack.Navigator screenOptions={screenOptionStyle} initialRouteName="Inicio">
 			<Stack.Screen name="Inicio" component={Inicio} options={{ title: 'Comida Mexicana' }}  />
-			<Stack.Screen name="Comprar" component={Comprar} options={{ title: 'Pedir' }} />
-			<Stack.Screen name="ComprarProducto" component={ComprarProducto}  options={{ title: 'Detalles del pedido' }} />
+			<Stack.Screen name="Ordenar" component={Ordenar} options={{ title: 'Ordenar' }} />
+			<Stack.Screen name="OrdenDetalles" component={OrdenDetalles}  options={{ title: 'Detalles de la orden' }} />
+			<Stack.Screen name="OrdenAgregada" component={OrdenAgregada}  options={{ title: 'Orden del pedido' }} />
 		</Stack.Navigator>
 	);
 };
 
-const CarritoStackNavigator = () => {
+const PedidoStackNavigator = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Carrito" component={Carrito} options={{ title: 'Carrito' }} />
+			<Stack.Screen name="MiPedido" component={MiPedido} options={{ title: 'Mi Pedido' }} />
 			<Stack.Screen name="Pago" component={Pago} options={{ title: 'Método de Pago' }} />
 		</Stack.Navigator>
 	);
@@ -55,4 +57,4 @@ const ProductosStackNavigator = () => {
 	);
 };
 
-export { MainStackNavigator, CarritoStackNavigator, QuejasStackNavigator, ProductosStackNavigator };
+export { MainStackNavigator, PedidoStackNavigator, QuejasStackNavigator, ProductosStackNavigator };
