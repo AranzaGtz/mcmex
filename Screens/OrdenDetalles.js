@@ -26,6 +26,34 @@ export default function OrdenDetalles({ navigation, route }) {
 		setShowDialogComplementos((prev) => !prev);
 	};
 
+	const agregarOrden = () => {
+		const orden = {
+			producto: producto,
+			cantidad: cantidad,
+			complementos: complementosSeleccionados,
+			notas: notas.length > 0 ? notas : defaultNotes,
+		};
+		agregarAlCarrito(orden);
+		alert(
+			"Orden de pedido",
+			"Se ha añadido con exito la orden al pedido",
+			[
+				{
+					text: "Regresar",
+					onPress: () => navigation.pop(1),
+				},
+				{
+					text: "Ir al Carrito",
+					onPress: () => {
+						cleanRedirect(navigation, "MainPedido");
+					},
+					style: "cancel",
+				},
+			],
+			{ cancelable: false }
+		);
+	};
+
 	return (
 		<ScrollView>
 			<Dialog
@@ -213,38 +241,7 @@ export default function OrdenDetalles({ navigation, route }) {
 						titleStyle={{ color: "white", marginHorizontal: 20 }}
 						color="black"
 						title="Agregar a la orden"
-						onPress={() => {
-							const orden = {
-								producto: producto,
-								cantidad: cantidad,
-								complementos: complementosSeleccionados,
-								notas: notas.length > 0 ? notas : defaultNotes,
-							};
-							agregarAlCarrito(orden);
-							alert(
-								"Orden de pedido",
-								"Se ha añadido con exito la orden al pedido",
-								[
-									{
-										text: "Regresar",
-										onPress: () => navigation.pop(1),
-									},
-									{
-										text: "Ir al Carrito",
-										onPress: () => {
-											cleanRedirect(navigation, "MainPedido")
-										},
-										style: "cancel",
-									},
-								],
-								{ cancelable: false }
-							);
-							/* 							navigation.navigate("OrdenAgregada", {
-								orden: orden,
-								
-							}); */
-							// navigation.pop(0);
-						}}
+						onPress={agregarOrden}
 					/>
 				</View>
 			</Card>

@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Inicio from "../Screens/Inicio";
 import MiPedido from "../Screens/MiPedido";
-import Pago from "../Screens/Pago";
+import MiPedidoInfo from "../Screens/MiPedidoInfo";
 import Quejas from "../Screens/Quejas";
 import Productos from "../Screens/Productos";
 import Producto from "../Screens/Producto";
@@ -33,9 +33,9 @@ const MainStackNavigator = () => {
 
 const PedidoStackNavigator = () => {
 	return (
-		<Stack.Navigator screenOptions={screenOptionStyle}>
+		<Stack.Navigator screenOptions={screenOptionStyle} initialRouteName="MiPedido">
 			<Stack.Screen name="MiPedido" component={MiPedido} options={{ title: 'Mi Pedido' }} />
-			<Stack.Screen name="Pago" component={Pago} options={{ title: 'Método de Pago' }} />
+			<Stack.Screen name="MiPedidoInfo" component={MiPedidoInfo} options={{ title: 'Información del Pedido' }} />
 		</Stack.Navigator>
 	);
 };
@@ -50,7 +50,7 @@ const QuejasStackNavigator = () => {
 
 const ProductosStackNavigator = () => {
 	return (
-		<Stack.Navigator screenOptions={screenOptionStyle}>
+		<Stack.Navigator screenOptions={screenOptionStyle} initialRouteName="Productos">
 			<Stack.Screen name="Productos" component={Productos} options={{ title: 'Productos' }} />
 			<Stack.Screen name="Producto" component={Producto} options={{ title: 'Detalle del producto' }} />
 		</Stack.Navigator>

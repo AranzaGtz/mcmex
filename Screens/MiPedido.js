@@ -135,6 +135,30 @@ export default function MiPedido({ navigation }) {
 					</>
 				)}
 			</ScrollView>
+			{carrito.length > 0 && (
+				<View
+					style={styles.bottomButtonContainer}
+				>
+					<Button
+						title="Proceder"
+						icon={{
+							name: "arrow-right",
+							type: "font-awesome",
+							size: 40,
+							color: "white",
+						}}
+						iconRight
+						iconContainerStyle={{ marginLeft: 10 }}
+						titleStyle={{ fontWeight: "700", fontSize: 40 }}
+						buttonStyle={{
+							backgroundColor: "black",
+						}}
+						containerStyle={{
+						}}
+						onPress={() => navigation.push("MiPedidoInfo")}
+					/>
+				</View>
+			)}
 		</View>
 	);
 }
@@ -142,16 +166,18 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "white",
+		width: "100%",
+		height: "100%",
 	},
 	buttons: {
 		width: "25%",
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},
-	bottomButton: {
-		position: "fixed",
+	bottomButtonContainer: {
+		position: "absolute",
 		bottom: 0,
-		left: 0,
+		width: "100%",
 	},
 	listItem: {
 		backgroundColor: "#F8F8F8",

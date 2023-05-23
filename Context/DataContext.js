@@ -71,6 +71,7 @@ const DataProvider = ({ children }) => {
 		};
 		const pedidosRef = ref(database, "Pedidos");
 		push(pedidosRef, pedido);
+		setCarrito([]);
 	};
 	React.useEffect(() => {
 		preload();
