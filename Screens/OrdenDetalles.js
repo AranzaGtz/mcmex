@@ -43,7 +43,7 @@ export default function OrdenDetalles({ navigation, route }) {
 					onPress: () => navigation.pop(1),
 				},
 				{
-					text: "Ir al Carrito",
+					text: "Ir al Pedido",
 					onPress: () => {
 						cleanRedirect(navigation, "MainPedido");
 					},
@@ -229,7 +229,7 @@ export default function OrdenDetalles({ navigation, route }) {
 					<Card.Divider />
 					<Card.Title style={styles.title}>Notas</Card.Title>
 					<Input
-						placeholder="Ej: Sin cebolla"
+						placeholder="Ej: Servir separado"
 						onChangeText={(text) => setNotas(text)}
 						value={notas}
 						multiline={true}

@@ -1,8 +1,6 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import { Text, Button, Icon, ListItem } from "@rneui/themed";
-import ThemeTemplate from "../Components/ThemeTemplate";
-import ThemeText from "../Components/ThemeText";
 import { useDataContext } from "../Context/DataContext";
 import { B } from "../Components/ClassicHtmlTags";
 import { defaultNotes } from "../utils/constants";
@@ -91,33 +89,6 @@ export default function MiPedido({ navigation }) {
 										</View>
 									</ListItem>
 								</ListItem.Accordion>
-								/* 								<ListItem key={idx} bottomDivider containerStyle={{backgroundColor: "#F8F8F8"}}>
-									<ListItem.Content>
-										<ListItem.Title>
-											x{pedido.cantidad}{" "}
-											{pedido.producto.nombre}
-										</ListItem.Title>
-										<ListItem.Subtitle>
-											Con{" "}
-											{pedido.complementos
-												.map((c) => complementos.find(complemento => complemento.id === c.id).nombre)
-												.join(", ")}{" "}
-											por ${precioTotal.toFixed(2)}
-										</ListItem.Subtitle>
-									</ListItem.Content>
-									<View style={styles.buttons}>
-										<Icon
-											reverse
-											name="ios-trash"
-											type="ionicon"
-											color="red"
-											size={30}
-											onPress={() =>
-												eliminarDelCarrito(idx)
-											}
-										/>
-									</View>
-								</ListItem> */
 							);
 						})}
 					</>
@@ -136,9 +107,7 @@ export default function MiPedido({ navigation }) {
 				)}
 			</ScrollView>
 			{carrito.length > 0 && (
-				<View
-					style={styles.bottomButtonContainer}
-				>
+				<View style={styles.bottomButtonContainer}>
 					<Button
 						title="Proceder"
 						icon={{
@@ -153,8 +122,7 @@ export default function MiPedido({ navigation }) {
 						buttonStyle={{
 							backgroundColor: "black",
 						}}
-						containerStyle={{
-						}}
+						containerStyle={{}}
 						onPress={() => navigation.push("MiPedidoInfo")}
 					/>
 				</View>

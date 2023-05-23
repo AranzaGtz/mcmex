@@ -1,16 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
-import fondo from "../assets/fondo-inicio.png";
+import { StyleSheet, View,  } from "react-native";
 import ThemeButton from "../Components/ThemeButton";
 import ThemeTemplate from "../Components/ThemeTemplate";
 import ThemeText from "../Components/ThemeText";
 
-const image =
-	fondo; /* {uri: 'https://i.pinimg.com/564x/c1/8f/f2/c18ff2a10107fc3b08419db54241ea95.jpg'} */
-
 export default function Inicio({ navigation }) {
 	return (
 		<ThemeTemplate>
+			<View style={styles.container}>
 			<View>
 				<ThemeText style={styles.title}>Menú de comida Mexicana</ThemeText>
 			</View>
@@ -20,10 +17,16 @@ export default function Inicio({ navigation }) {
 					onPress={() => navigation.navigate("Ordenar")}
 				/>
 			</View>
+			</View>
 		</ThemeTemplate>
 	);
 }
 const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
 	child: {
 		marginTop: 20,
 	},

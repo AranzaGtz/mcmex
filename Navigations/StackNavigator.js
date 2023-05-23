@@ -3,11 +3,10 @@ import Inicio from "../Screens/Inicio";
 import MiPedido from "../Screens/MiPedido";
 import MiPedidoInfo from "../Screens/MiPedidoInfo";
 import Quejas from "../Screens/Quejas";
-import Productos from "../Screens/Productos";
-import Producto from "../Screens/Producto";
+import Acerca from "../Screens/Acerca";
 import Ordenar from "../Screens/Ordenar";
-import OrdenDetalles from "../Screens/OrdenDetalles"
-import OrdenAgregada from "../Screens/OrdenAgregada"
+import OrdenDetalles from "../Screens/OrdenDetalles";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Stack = createStackNavigator();
 
@@ -17,25 +16,79 @@ const screenOptionStyle = {
 	},
 	headerTintColor: "black",
 	headerBackTitle: "Regresar",
-	headerTitleAlign: 'center'
+	headerTitleAlign: "center",
 };
 
-const MainStackNavigator = () => {
+const navigationOptions = (props) => ({
+	headerLeft: () => (
+		<Ionicons
+			name={"ios-menu"}
+			size={40}
+			color={"black"}
+			onPress={() => props.navigation.toggleDrawer()}
+			style={{ marginLeft: 5 }}
+		/>
+	),
+	...props,
+});
+
+const MainStackNavigator = (props) => {
 	return (
-		<Stack.Navigator screenOptions={screenOptionStyle} initialRouteName="Inicio">
-			<Stack.Screen name="Inicio" component={Inicio} options={{ title: 'Comida Mexicana' }}  />
-			<Stack.Screen name="Ordenar" component={Ordenar} options={{ title: 'Ordenar' }} />
-			<Stack.Screen name="OrdenDetalles" component={OrdenDetalles}  options={{ title: 'Detalles de la orden' }} />
-			<Stack.Screen name="OrdenAgregada" component={OrdenAgregada}  options={{ title: 'Orden del pedido' }} />
+		<Stack.Navigator
+			screenOptions={screenOptionStyle}
+			initialRouteName="Inicio"
+		>
+			<Stack.Screen
+				name="Inicio"
+				component={Inicio}
+				options={(props) =>
+					navigationOptions({ title: "Comida Mexicana", ...props })
+				}
+			/>
+			<Stack.Screen
+				name="Ordenar"
+				component={Ordenar}
+				options={(props) =>
+					navigationOptions({ title: "Ordenar", ...props })
+				}
+			/>
+			<Stack.Screen
+				name="OrdenDetalles"
+				component={OrdenDetalles}
+				options={(props) =>
+					navigationOptions({
+						title: "Detalles de la orden",
+						...props,
+					})
+				}
+			/>
 		</Stack.Navigator>
 	);
 };
 
 const PedidoStackNavigator = () => {
 	return (
-		<Stack.Navigator screenOptions={screenOptionStyle} initialRouteName="MiPedido">
-			<Stack.Screen name="MiPedido" component={MiPedido} options={{ title: 'Mi Pedido' }} />
-			<Stack.Screen name="MiPedidoInfo" component={MiPedidoInfo} options={{ title: 'Información del Pedido' }} />
+		<Stack.Navigator
+			screenOptions={screenOptionStyle}
+			initialRouteName="MiPedido"
+		>
+			<Stack.Screen
+				name="MiPedido"
+				component={MiPedido}
+				options={(props) =>
+					navigationOptions({ title: "Mi Pedido", ...props })
+				}
+			/>
+			<Stack.Screen
+				name="MiPedidoInfo"
+				component={MiPedidoInfo}
+				options={(props) =>
+					navigationOptions({
+						title: "Información del Pedido",
+						...props,
+					})
+				}
+			/>
 		</Stack.Navigator>
 	);
 };
@@ -43,18 +96,37 @@ const PedidoStackNavigator = () => {
 const QuejasStackNavigator = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Quejas" component={Quejas} options={{ title: 'Quejas' }} />
+			<Stack.Screen
+				name="Quejas"
+				component={Quejas}
+				options={(props) =>
+					navigationOptions({ title: "Quejas", ...props })
+				}
+			/>
 		</Stack.Navigator>
 	);
 };
 
-const ProductosStackNavigator = () => {
+const AcercaStackNavigator = () => {
 	return (
-		<Stack.Navigator screenOptions={screenOptionStyle} initialRouteName="Productos">
-			<Stack.Screen name="Productos" component={Productos} options={{ title: 'Productos' }} />
-			<Stack.Screen name="Producto" component={Producto} options={{ title: 'Detalle del producto' }} />
+		<Stack.Navigator screenOptions={screenOptionStyle}>
+			<Stack.Screen
+				name="Acerca"
+				component={Acerca}
+				options={(props) =>
+					navigationOptions({
+						title: "Acerca de la aplicación",
+						...props,
+					})
+				}
+			/>
 		</Stack.Navigator>
 	);
 };
 
-export { MainStackNavigator, PedidoStackNavigator, QuejasStackNavigator, ProductosStackNavigator };
+export {
+	MainStackNavigator,
+	PedidoStackNavigator,
+	QuejasStackNavigator,
+	AcercaStackNavigator,
+};

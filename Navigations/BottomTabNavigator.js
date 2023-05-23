@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const screenOptionStyle = {
 	//Versiones anteriores tabBarOptions
-	tabBarActiveTintColor: "#B1B1B1", //activeTintColor
+	tabBarActiveTintColor: "#000000", //activeTintColor
 	tabBarInactiveTintColor: "#FFFFFF", //inactiveTintColor
 	tabBarShowLabel: true, //showLabel
 	tabBarLabelStyle: {
@@ -48,21 +48,6 @@ export default function BottomTabNavigator() {
 					tabBarIcon: ({ color }) => (
 						<Ionicons
 							name={"cart-outline"}
-							size={20}
-							color={color}
-						/>
-					),
-				}}
-			/>
-			<Tab.Screen
-				name="MainQuejas"
-				component={QuejasStackNavigator}
-				options={{
-					headerShown: false,
-					tabBarLabel: "Quejas",
-					tabBarIcon: ({ color }) => (
-						<Ionicons
-							name={"ios-help-circle"}
 							size={20}
 							color={color}
 						/>

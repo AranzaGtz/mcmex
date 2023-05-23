@@ -1,0 +1,256 @@
+{
+  "Categorias": [
+    {
+      "id": 1,
+      "nombre": "Tacos"
+    },
+    {
+      "id": 2,
+      "nombre": "Tostadas"
+    },
+    {
+      "id": 3,
+      "nombre": "Flautas"
+    },
+    {
+      "id": 4,
+      "nombre": "Sopes"
+    },
+    {
+      "id": 5,
+      "nombre": "Tortas"
+    },
+    {
+      "id": 6,
+      "nombre": "Tamales"
+    },
+    {
+      "id": 7,
+      "nombre": "Enchiladas"
+    },
+    {
+      "id": 8,
+      "nombre": "Chilaquiles"
+    },
+    {
+      "id": 9,
+      "nombre": "Bebidas"
+    },
+    {
+      "id": 10,
+      "nombre": "Postres"
+    },
+    {
+      "id": 11,
+      "nombre": "Complementos"
+    }
+  ],
+  "Complementos": [
+    {
+      "id": 1,
+      "nombre": "Limones"
+    },
+    {
+      "id": 2,
+      "nombre": "Salsa Verde"
+    },
+    {
+      "id": 3,
+      "nombre": "Salsa Roja"
+    },
+    {
+      "id": 4,
+      "nombre": "Guacamole"
+    },
+    {
+      "id": 5,
+      "nombre": "Cebolla"
+    },
+    {
+      "id": 6,
+      "nombre": "Cilantro"
+    },
+    {
+      "id": 7,
+      "nombre": "Piña"
+    },
+    {
+      "id": 8,
+      "nombre": "Frijoles"
+    },
+    {
+      "id": 9,
+      "nombre": "Salsa de Tomate"
+    },
+    {
+      "id": 10,
+      "nombre": "Queso Crema"
+    },
+    {
+      "id": 11,
+      "nombre": "Cebolla Curtida"
+    },
+    {
+      "id": 12,
+      "nombre": "Rábanos Curtidos"
+    }
+  ],
+  "Productos": [
+    {
+      "categoria": 1,
+      "complementos": [
+        5,
+        6,
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "descripcion": "Acompañados de piña, cebolla, cilantro y guacamole.",
+      "id": 1,
+      "imagen": "https://assets.unileversolutions.com/recipes-v2/236509.jpg",
+      "nombre": "Tacos al Pastor (Individual)",
+      "precio": 15,
+      "precomplementos": [
+        5,
+        6,
+        7,
+        4,
+        1
+      ]
+    },
+    {
+      "categoria": 1,
+      "complementos": [
+        5,
+        6,
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "descripcion": "Acompañados de piña, cebolla, cilantro y guacamole.",
+      "id": 2,
+      "imagen": "https://assets.unileversolutions.com/recipes-v2/236509.jpg",
+      "nombre": "Tacos al Pastor (Orden de 3)",
+      "precio": 40,
+      "precomplementos": [
+        5,
+        6,
+        7,
+        4,
+        1
+      ]
+    },
+    {
+      "categoria": 2,
+      "complementos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "descripcion": "Acompañados de frijoles, salsa de tomate, queso crema, cebolla curtida y rábanos curtidos.",
+      "id": 3,
+      "imagen": "https://assets.unileversolutions.com/recipes-v2/236509.jpg",
+      "nombre": "Tostada de Pollo (Individual)",
+      "precio": 35,
+      "precomplementos": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "categoria": 2,
+      "complementos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "descripcion": "Acompañados de frijoles, salsa de tomate, queso crema, cebolla curtida y rábanos curtidos.",
+      "id": 4,
+      "imagen": "https://assets.unileversolutions.com/recipes-v2/236509.jpg",
+      "nombre": "Tostada de Pollo (Orden de 3)",
+      "precio": 60,
+      "precomplementos": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "categoria": 3,
+      "complementos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "descripcion": "Acompañados de frijoles, salsa de tomate, queso crema, cebolla curtida y rábanos curtidos.",
+      "id": 5,
+      "imagen": "https://assets.unileversolutions.com/recipes-v2/236509.jpg",
+      "nombre": "Flautas de Pollo (Orden de 2)",
+      "precio": 46,
+      "precomplementos": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "categoria": 3,
+      "complementos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "descripcion": "Acompañados de frijoles, salsa de tomate, queso crema, cebolla curtida y rábanos curtidos.",
+      "id": 6,
+      "imagen": "https://assets.unileversolutions.com/recipes-v2/236509.jpg",
+      "nombre": "Flautas de Pollo (Orden de 4)",
+      "precio": 80,
+      "precomplementos": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  ]
+}

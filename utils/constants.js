@@ -8,3 +8,5 @@ export const PedidoStatus = {
     EN_PROCESO: "En proceso",
     ENTREGADO: "Entregado",
 }
+
+export const PhoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;

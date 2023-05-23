@@ -4,11 +4,10 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDataContext } from "../Context/DataContext";
-import { PedidoStatus, PedidoTipo } from "../utils/constants";
+import { PedidoStatus, PedidoTipo, PhoneRegExp } from "../utils/constants";
 import { cleanRedirect } from "../utils/navigationHelper";
 import { alert } from "../utils/alertPolyfill";
-
-const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+import sendSMS from "../utils/sendSMS";
 
 const pedidoInfoValidationSchema = Yup.object().shape({
 	name: Yup.string()
@@ -16,7 +15,7 @@ const pedidoInfoValidationSchema = Yup.object().shape({
 		.max(20, "El nombre debe tener menos de 20 caracteres")
 		.required("Este campo es requerido"),
 	phoneNumber: Yup.string()
-		.matches(phoneRegExp, "El formato del número de teléfono no es válido")
+		.matches(PhoneRegExp, "El formato del número de teléfono no es válido")
 		.required("Este campo es requerido"),
 	paraLlevar: Yup.boolean(),
 });
@@ -48,7 +47,7 @@ export default function MiPedidoInfo({ navigation }) {
 						paraLlevar: false,
 					}}
 					onSubmit={(values) => {
-						completarPedido({
+						const insertedData = completarPedido({
 							status: PedidoStatus.PENDIENTE,
 							nombre: values.name,
 							telefono: values.phoneNumber,
@@ -57,17 +56,28 @@ export default function MiPedidoInfo({ navigation }) {
 								: PedidoTipo.COMER_AQUI,
 							fecha: new Date().toISOString(),
 						});
-                        alert(
-                            "Pedido exitoso",
-                            "Se ha realizado el pedido con exito.\n\nEspere a que te llamemos para confirmar tu pedido.",
-                            [
-                                {
-                                    text: "Aceptar",
-                                    onPress: () => cleanRedirect(navigation, "Main"),
-                                }
-                            ],
-                            { cancelable: false }
-                        );
+						/* sendSMS(
+							values.phoneNumber,
+							`Pedido realizado con exito.\n\nPedido #${
+								insertedData.id
+							}\nNombre de referencia: ${
+								values.name
+							}\nTotal: ${total.toFixed(2)}\n\nTransacción: ${
+								insertedData.key
+							}`
+						); */
+						alert(
+							"Pedido exitoso",
+							"Se ha realizado el pedido con exito.\n\nPedido #"+insertedData.id+"\nEspere a que te llamemos para confirmar tu pedido.",
+							[
+								{
+									text: "Aceptar",
+									onPress: () =>
+										cleanRedirect(navigation, "Main"),
+								},
+							],
+							{ cancelable: false }
+						);
 					}}
 				>
 					{({
@@ -122,7 +132,7 @@ export default function MiPedidoInfo({ navigation }) {
 								onValueChange={(value) =>
 									setFieldValue("paraLlevar", value)
 								}
-                                style={{alignSelf: "flex-start"}}
+								style={{ alignSelf: "flex-start" }}
 							/>
 							<Card.Divider />
 							<View style={styles.summary}>

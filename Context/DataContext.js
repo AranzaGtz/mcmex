@@ -1,6 +1,7 @@
 import React from "react";
 import database from "../utils/firebaseDB";
 import { get, push, ref } from "firebase/database";
+import uuid from "react-native-uuid";
 
 const DataContext = React.createContext();
 
@@ -66,12 +67,18 @@ const DataProvider = ({ children }) => {
 	};
 	const completarPedido = (informacion) => {
 		const pedido = {
+			id: uuid.v4(),
 			...informacion,
 			orden: carrito,
 		};
 		const pedidosRef = ref(database, "Pedidos");
-		push(pedidosRef, pedido);
+		const pushRef = push(pedidosRef, pedido);
 		setCarrito([]);
+		return { key: pushRef.key, id: pedido.id };
+	};
+	const insertarQueja = (queja) => {
+		const quejasRef = ref(database, "Quejas");
+		push(quejasRef, queja);
 	};
 	React.useEffect(() => {
 		preload();
@@ -87,6 +94,7 @@ const DataProvider = ({ children }) => {
 				agregarAlCarrito,
 				eliminarDelCarrito,
 				completarPedido,
+				insertarQueja,
 			}}
 		>
 			{children}

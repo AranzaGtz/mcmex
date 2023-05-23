@@ -6,17 +6,15 @@ import {
 } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import BottomTabNavigator from "./BottomTabNavigator";
-import {
-	ProductosStackNavigator,
-	QuejasStackNavigator,
-} from "./StackNavigator";
+import { AcercaStackNavigator, QuejasStackNavigator } from "./StackNavigator";
+/* import {Text, View} from "react-native"; */
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigatorContent = (props) => (
-	<DrawerContentScrollView {...props}>
+	<DrawerContentScrollView {...props} >
 		<DrawerItemList {...props} />
-{/* 		<View style={{ flexDirection: "row", marginLeft: 20, marginTop: 15 }}>
+		{/* <View style={{ flexDirection: "row", marginLeft: 20, marginTop: 15 }}>
 			<Ionicons name="md-exit" size={25} color={"#060606"} />
 			<Text
 				style={{ marginLeft: 30 }}
@@ -35,10 +33,15 @@ export default function DrawerNavigator(props) {
 				drawerStyle: {
 					backgroundColor: "#ffff",
 					width: "70%",
+					zIndex: 100,
 				},
-				drawerActiveTintColor: "#ff6600", //activeTintColor
+				drawerActiveTintColor: "#2E9200", //activeTintColor
 				drawerInactiveTintColor: "#060606", //inactiveTintColor
 			}}
+			contentContainerStyle={{
+				flexGrow: 1
+			}}
+
 			drawerContent={(props) => <DrawerNavigatorContent {...props} />}
 		>
 			<Drawer.Screen
@@ -53,14 +56,14 @@ export default function DrawerNavigator(props) {
 				}}
 			/>
 			<Drawer.Screen
-				name="DrawerProductos"
-				component={ProductosStackNavigator}
+				name="DrawerQuejas"
+				component={QuejasStackNavigator}
 				options={{
 					headerShown: false,
-					drawerLabel: "Productos",
+					drawerLabel: "Quejas",
 					drawerIcon: ({ color }) => (
 						<Ionicons
-							name={"list-outline"}
+							name={"sad-outline"}
 							size={20}
 							color={color}
 						/>
@@ -68,11 +71,11 @@ export default function DrawerNavigator(props) {
 				}}
 			/>
 			<Drawer.Screen
-				name="DrawerQuejas"
-				component={QuejasStackNavigator}
+				name="DrawerAcerca"
+				component={AcercaStackNavigator}
 				options={{
 					headerShown: false,
-					drawerLabel: "Quejas",
+					drawerLabel: "Acerca de",
 					drawerIcon: ({ color }) => (
 						<Ionicons
 							name={"ios-help-circle"}
