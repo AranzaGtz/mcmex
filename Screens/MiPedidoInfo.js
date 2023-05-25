@@ -1,5 +1,5 @@
 import { Text, Card, Button, Input, Switch } from "@rneui/themed";
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -22,6 +22,8 @@ const pedidoInfoValidationSchema = Yup.object().shape({
 
 export default function MiPedidoInfo({ navigation }) {
 	const { carrito, completarPedido } = useDataContext();
+	const formikRef = useRef();
+
 	const total = useMemo(
 		() =>
 			carrito.reduce((acc, pedido) => {
@@ -32,6 +34,16 @@ export default function MiPedidoInfo({ navigation }) {
 	const iva = useMemo(() => total * 0.08, [total]);
 	const subTotal = useMemo(() => total - iva, [total, iva]);
 
+	useEffect(() => {
+		// Restablecer valores de formik
+		navigation.addListener("focus", () => {
+			formikRef.current.resetForm();
+		});
+		return () => {
+			navigation.removeListener("focus");
+		}
+	}, []);
+
 	return (
 		<ScrollView>
 			<Card containerStyle={{ marginTop: 15 }}>
@@ -40,6 +52,7 @@ export default function MiPedidoInfo({ navigation }) {
 				</Card.Title>
 				<Card.Divider />
 				<Formik
+					innerRef={formikRef}
 					validationSchema={pedidoInfoValidationSchema}
 					initialValues={{
 						name: "",

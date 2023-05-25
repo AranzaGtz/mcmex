@@ -1,5 +1,5 @@
 import { Text, Card, Button, Input, Switch } from "@rneui/themed";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -26,6 +26,17 @@ const ValidationSchema = Yup.object().shape({
 
 export default function Quejas({navigation}) {
 	const { insertarQueja } = useDataContext();
+	const formikRef = useRef();
+
+	useEffect(() => {
+		// Restablecer valores de formik
+		navigation.addListener("focus", () => {
+			formikRef.current.resetForm();
+		});
+		return () => {
+			navigation.removeListener("focus");
+		}
+	}, []);
 	return (
 		<ScrollView>
 			<Card containerStyle={{ marginTop: 15 }}>
@@ -34,6 +45,7 @@ export default function Quejas({navigation}) {
 				</Card.Title>
 				<Card.Divider />
 				<Formik
+					innerRef={formikRef}
 					validationSchema={ValidationSchema}
 					initialValues={{
 						name: "",
