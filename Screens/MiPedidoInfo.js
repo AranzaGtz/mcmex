@@ -68,7 +68,7 @@ export default function MiPedidoInfo({ navigation }) {
 						); */
 						alert(
 							"Pedido exitoso",
-							"Se ha realizado el pedido con exito.\n\nPedido #"+insertedData.id+"\nEspere a que te llamemos para confirmar tu pedido.",
+							"Se ha realizado el pedido con exito.\n\nEspere a que lo llamemos para recibir su pedido.",
 							[
 								{
 									text: "Aceptar",

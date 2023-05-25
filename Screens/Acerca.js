@@ -43,12 +43,12 @@ export default function Acerca(props) {
 				<Text style={styles.textFull}>
 					Esta es una aplicación móvil desarrollada con el propósito
 					de fungir como aplicación de tableta para hacer pedidos en
-					un restaurante mexicano.
+					un restaurante de comida mexicana.
 				</Text>
 				<Text style={styles.textFull}>
 					Creado para la clase de "Desarrollo de Aplicaciones para
-					Dispositivos Móviles" impartido por la maestra "Dra. Daniela
-					Adriana Sanchez Vizcarra".
+					Dispositivos Móviles" impartido por la Dra. Daniela
+					Adriana Sanchez Vizcarra.
 				</Text>
 				<Card.Divider />
 				<Text style={styles.text} h4>

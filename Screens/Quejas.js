@@ -51,7 +51,7 @@ export default function Quejas({navigation}) {
 						});
 						alert(
 							"Queja enviada",
-							"Se ha enviado la queja con exito.\n\nDisculpamos que tenga inconvenientes, recibiremos su queja y trataremos de mejorar nuestros servicios.\n\nGracias.",
+							"Se ha enviado la queja con exito.\n\nNos disculpamos que haya tenido inconvenientes, recibiremos su queja y trataremos de mejorar nuestros servicios.\n\nMuchas gracias.",
 							[
 								{
 									text: "Aceptar",
